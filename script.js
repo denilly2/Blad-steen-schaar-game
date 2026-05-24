@@ -36,15 +36,21 @@ requestAnimationFrame(loop);
 return;
 
 }
-  
 
   const prediction = await model.predict(webcam.canvas);
+
+    if (!prediction || prediction.length === 0) {
+    requestAnimationFrame(loop);
+    return;
+  }
 
   let highest = prediction.reduce((prev, current) =>
     prev.probability > current.probability ? prev : current,
   );
 
-    const gesture = highest.className;
+  const gesture = highest.className || "?";
+
+  
 const confidence = highest.probability
   ? (highest.probability * 100).toFixed(0)
   : 0;
