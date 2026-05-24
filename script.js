@@ -76,7 +76,6 @@ const confidence = highest.probability
     requestAnimationFrame(loop);
   }, 120);
 
-  window.requestAnimationFrame(loop);
 }
 
 
