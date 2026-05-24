@@ -45,5 +45,20 @@ async function loop() {
     const gesture = highest.className;
   const confidence = (highest.probability * 100).toFixed(0);
 
+    const detectEl = document.getElementById("detectedGesture");
+  if (detectEl) {
+    detectEl.innerText = `Detectie: ${gesture} (${confidence}%)`;
+  }
+
+    if (
+    gesture === "👍" &&
+    highest.probability > 0.9 &&
+    !isPlaying &&
+    Date.now() - lastStartTime > 2000
+  ) {
+    startGame();
+    lastStartTime = Date.now();
+  }
+
 
 }
