@@ -154,4 +154,21 @@ async function runCountdown() {
 
   
   el.classList.remove("show");
+
+  function getAI() {
+  return aiChoices[Math.floor(Math.random() * 3)];
+}
+
+function decide(user, ai) {
+  if (user === ai) return "DRAW";
+
+  if (
+    (user === "✋" && ai === "✊") ||
+    (user === "✊" && ai === "✌️") ||
+    (user === "✌️" && ai === "✋")
+  )
+    return "WIN";
+
+  return "LOSE";
+}
 }
