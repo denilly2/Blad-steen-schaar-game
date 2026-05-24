@@ -70,6 +70,6 @@ button:hover {
   transition: opacity 0.3s ease;
 }
 
-show {
+.show {
   opacity: 1 !important;
 }
