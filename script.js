@@ -24,4 +24,17 @@ await webcam.play();
 const video = document.getElementById("webcam");
 video.replaceWith(webcam.canvas);
 webcam.canvas.id = "webcam";
+
+window.requestAnimationFrame(loop);
+}
+
+async function loop() {
+  webcam.update();
+
+  if (!model) {
+    window.requestAnimationFrame(loop);
+    return;
+  }
+
+  window.requestAnimationFrame(loop);
 }
