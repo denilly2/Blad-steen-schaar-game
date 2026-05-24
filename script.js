@@ -50,12 +50,14 @@ return;
 
   const gesture = highest.className || "?";
 
-  
+
 const confidence = highest.probability
   ? (highest.probability * 100).toFixed(0)
   : 0;
 
     const detectEl = document.getElementById("detectedGesture");
+
+
   if (detectEl) {
     detectEl.innerText = `Detectie: ${gesture} (${confidence}%)`;
   }
@@ -69,6 +71,10 @@ const confidence = highest.probability
     startGame();
     lastStartTime = Date.now();
   }
+
+    setTimeout(() => {
+    requestAnimationFrame(loop);
+  }, 120);
 
   window.requestAnimationFrame(loop);
 }
