@@ -103,3 +103,25 @@ button:hover {
   transition: opacity 0.2s ease;
   z-index: 999;
 }
+
+
+v.countdown.show {
+  opacity: 1;
+}
+
+.countdown.pop {
+  transform: scale(1.2);
+  transition: transform 0.2s ease;
+}
+
+.detected {
+  position: absolute;
+  bottom: 10px; /* i.p.v. -35px */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 18px;
+  color: white;
+}
