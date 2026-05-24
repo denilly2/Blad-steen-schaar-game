@@ -134,3 +134,24 @@ async function startGame() {
     isPlaying = false;
   }, 1500);
 }
+
+
+async function runCountdown() {
+  const el = document.getElementById("countdown");
+  el.classList.add("show");
+
+  const steps = ["3", "2", "1", "GO"];
+
+  for (let step of steps) {
+    el.innerText = step;
+
+       el.classList.remove("pop");
+    void el.offsetWidth;
+    el.classList.add("pop");
+
+    await new Promise((r) => setTimeout(r, 700));
+  }
+
+  
+  el.classList.remove("show");
+}
