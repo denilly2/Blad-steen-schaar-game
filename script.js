@@ -37,4 +37,13 @@ async function loop() {
   }
 
   const prediction = await model.predict(webcam.canvas);
+
+  let highest = prediction.reduce((prev, current) =>
+    prev.probability > current.probability ? prev : current,
+  );
+
+    const gesture = highest.className;
+  const confidence = (highest.probability * 100).toFixed(0);
+
+
 }
