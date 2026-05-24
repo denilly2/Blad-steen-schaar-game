@@ -36,5 +36,5 @@ async function loop() {
     return;
   }
 
-  window.requestAnimationFrame(loop);
+  const prediction = await model.predict(webcam.canvas);
 }
