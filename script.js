@@ -73,3 +73,29 @@ async function predict() {
    return highest.className;
 }
 
+
+async function playRound() {
+  document.getElementById("resultText").classList.remove("show");
+
+  await runCountdown();
+
+  const user = await predict();
+  const ai = getAI();
+
+    document.getElementById("aiChoice").innerText = ai;
+
+  const result = decide(user, ai);
+
+    if (result === "WIN") playerScore++;
+  if (result === "LOSE") aiScore++;
+
+  document.getElementById("playerScore").innerText = playerScore;
+  document.getElementById("aiScore").innerText = aiScore;
+
+  const text =
+    result === "WIN" ? "You WIN" : result === "LOSE" ? "You Lose" : "Draw";
+
+  const resultEl = document.getElementById("resultText");
+  resultEl.innerText = text;
+  resultEl.classList.add("show");
+}
