@@ -62,3 +62,14 @@ async function loop() {
 
   window.requestAnimationFrame(loop);
 }
+
+
+async function predict() {
+  const prediction = await model.predict(webcam.canvas);
+
+  let highest = prediction.reduce((prev, current) =>
+    prev.probability > current.probability ? prev : current,
+);
+   return highest.className;
+}
+
