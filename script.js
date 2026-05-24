@@ -43,7 +43,9 @@ async function loop() {
   );
 
     const gesture = highest.className;
-  const confidence = (highest.probability * 100).toFixed(0);
+const confidence = highest.probability
+  ? (highest.probability * 100).toFixed(0)
+  : 0;
 
     const detectEl = document.getElementById("detectedGesture");
   if (detectEl) {
