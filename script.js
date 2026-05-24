@@ -60,5 +60,5 @@ async function loop() {
     lastStartTime = Date.now();
   }
 
-
+  window.requestAnimationFrame(loop);
 }
