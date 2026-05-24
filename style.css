@@ -105,7 +105,7 @@ button:hover {
 }
 
 
-v.countdown.show {
+.countdown.show {
   opacity: 1;
 }
 
