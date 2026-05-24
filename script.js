@@ -31,11 +31,12 @@ window.requestAnimationFrame(loop);
 async function loop() {
   webcam.update();
 
-  if (!model) {
-   setTimeout(() => {
-  window.requestAnimationFrame(loop);
-}, 100);
-  }
+if (!model){
+requestAnimationFrame(loop);
+return;
+
+}
+  
 
   const prediction = await model.predict(webcam.canvas);
 
